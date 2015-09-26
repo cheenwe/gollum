@@ -428,7 +428,7 @@ module Precious
       if page = wikip.page
         @page    = page
         @name    = name
-        @content = page.formatted_data
+        @content = page.text_data
         @version = version
         mustache :page
       elsif file = wikip.wiki.file("#{file_path}", version, true)
@@ -490,7 +490,7 @@ module Precious
       if page = wiki.paged(name, path, exact = true)
         @page          = page
         @name          = name
-        @content       = page.formatted_data
+        @content       = page.raw_data
         @upload_dest   = find_upload_dest(path)
 
         # Extensions and layout data

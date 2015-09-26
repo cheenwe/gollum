@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="Content-type" content="charset=utf-8">
   <meta name="MobileOptimized" content="width">
   <meta name="HandheldFriendly" content="true">
   <meta name="viewport" content="width=device-width">
@@ -25,6 +25,7 @@
       {{/page}}
   </script>
   <script type="text/javascript" src="{{base_url}}/javascript/jquery-1.7.2.min.js"></script>
+
   <script type="text/javascript" src="{{base_url}}/javascript/mousetrap.min.js"></script>
   <script type="text/javascript" src="{{base_url}}/javascript/gollum.js"></script>
   <script type="text/javascript" src="{{base_url}}/javascript/gollum.dialog.js"></script>
@@ -32,31 +33,11 @@
   <script type="text/javascript" src="{{base_url}}/javascript/editor/gollum.editor.js"></script>
   {{#use_identicon}}
   <script type="text/javascript" src="{{base_url}}/javascript/identicon_canvas.js"></script>
-  {{/use_identicon}}
-  {{#mathjax}}
-  {{^mathjax_config}}
-  <script type="text/javascript">
-  window.MathJax = {
-    tex2jax: {
-      inlineMath:  [ ['$','$'], ['\\(','\\)'] ],
-      displayMath: [ ['$$','$$'], ['\\[','\\]'] ],
-      processEscapes: true
-    },
-    TeX: { extensions: ["autoload-all.js"] }
-  };
-  </script>
-  {{/mathjax_config}}
-  {{#mathjax_config}}
-  <script type="text/javascript" src="{{base_url}}/{{mathjax_config}}"></script>
-  {{/mathjax_config}}
-  <script>(function(d,j){
-  j = d.createElement('script');
-  j.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-  (d.head || d.getElementsByTagName('head')[0]).appendChild(j);
-  }(document));
-  </script>{{/mathjax}}
-  {{#js}}<script type="text/javascript" src="{{custom_path}}/custom.js"></script>{{/js}}
+  <script type="text/javascript" src="{{base_url}}/javascript/editormd.js"></script>
 
+  {{/use_identicon}}
+  
+  
   <title>{{title}}</title>
 </head>
 <body>
@@ -64,4 +45,36 @@
 {{{yield}}}
 
 </body>
+  
+<script type="text/javascript" src="{{base_url}}/javascript/editormd.js"></script>
+<script type="text/javascript" src="{{base_url}}/javascript/marked.min.js"></script>
+<script type="text/javascript" src="{{base_url}}/javascript/prettify.min.js"></script>
+<script type="text/javascript" src="{{base_url}}/javascript/raphael.min.js"></script>
+<script type="text/javascript" src="{{base_url}}/javascript/underscore.min.js"></script>
+
+<script type="text/javascript" src="{{base_url}}/javascript/sequence-diagram.min.js"></script>
+<script type="text/javascript" src="{{base_url}}/javascript/flowchart.min.js"></script>
+<script type="text/javascript" src="{{base_url}}/javascript/jquery.flowchart.min.js"></script>
+ 
+
+<script type="text/javascript">
+ $(function() {       
+                
+                var testEditor = editormd.markdownToHTML("wiki-content-display", {
+                    
+                    emoji           : true,
+                    taskList        : true,
+                    tex             : true,  // 默认不解析
+                    flowChart       : true,  // 默认不解析
+                    sequenceDiagram : true,  // 默认不解析
+                    tocm            : true,
+                    path : '.javascript/lib/',
+                    codeFold : true
+
+                });
+
+  });
+
+</script>
+
 </html>
