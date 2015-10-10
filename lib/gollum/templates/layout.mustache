@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-type" content="charset=utf-8">
+  <meta http-equiv="Content-type" content="text/html;charset=utf-8">
   <meta name="MobileOptimized" content="width">
   <meta name="HandheldFriendly" content="true">
   <meta name="viewport" content="width=device-width">
@@ -25,7 +25,6 @@
       {{/page}}
   </script>
   <script type="text/javascript" src="{{base_url}}/javascript/jquery-1.7.2.min.js"></script>
-
   <script type="text/javascript" src="{{base_url}}/javascript/mousetrap.min.js"></script>
   <script type="text/javascript" src="{{base_url}}/javascript/gollum.js"></script>
   <script type="text/javascript" src="{{base_url}}/javascript/gollum.dialog.js"></script>
@@ -33,11 +32,8 @@
   <script type="text/javascript" src="{{base_url}}/javascript/editor/gollum.editor.js"></script>
   {{#use_identicon}}
   <script type="text/javascript" src="{{base_url}}/javascript/identicon_canvas.js"></script>
-  <script type="text/javascript" src="{{base_url}}/javascript/editormd.js"></script>
-
   {{/use_identicon}}
-  
-  
+
   <title>{{title}}</title>
 </head>
 <body>
@@ -45,23 +41,21 @@
 {{{yield}}}
 
 </body>
-  
-<script type="text/javascript" src="{{base_url}}/javascript/editormd.js"></script>
-<script type="text/javascript" src="{{base_url}}/javascript/marked.min.js"></script>
-<script type="text/javascript" src="{{base_url}}/javascript/prettify.min.js"></script>
-<script type="text/javascript" src="{{base_url}}/javascript/raphael.min.js"></script>
-<script type="text/javascript" src="{{base_url}}/javascript/underscore.min.js"></script>
 
-<script type="text/javascript" src="{{base_url}}/javascript/sequence-diagram.min.js"></script>
-<script type="text/javascript" src="{{base_url}}/javascript/flowchart.min.js"></script>
-<script type="text/javascript" src="{{base_url}}/javascript/jquery.flowchart.min.js"></script>
- 
+<script type="text/javascript" src="{{base_url}}/javascript/editormd/editormd.js"></script>
+<script type="text/javascript" src="{{base_url}}/javascript/editormd/lib/marked.min.js"></script>
+<script type="text/javascript" src="{{base_url}}/javascript/editormd/lib/prettify.min.js"></script>
+<script type="text/javascript" src="{{base_url}}/javascript/editormd/lib/raphael.min.js"></script>
+<script type="text/javascript" src="{{base_url}}/javascript/editormd/lib/underscore.min.js"></script>
+<script type="text/javascript" src="{{base_url}}/javascript/editormd/lib/sequence-diagram.min.js"></script>
+<script type="text/javascript" src="{{base_url}}/javascript/editormd/lib/flowchart.min.js"></script>
+<script type="text/javascript" src="{{base_url}}/javascript/editormd/lib/jquery.flowchart.min.js"></script>
 
 <script type="text/javascript">
- $(function() {       
-                
+ $(function() {
+
                 var testEditor = editormd.markdownToHTML("wiki-content-display", {
-                    
+
                     emoji           : true,
                     taskList        : true,
                     tex             : true,  // 默认不解析

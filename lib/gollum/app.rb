@@ -428,7 +428,7 @@ module Precious
       if page = wikip.page
         @page    = page
         @name    = name
-        @content = page.text_data
+        @content = page.formatted_data
         @version = version
         mustache :page
       elsif file = wikip.wiki.file("#{file_path}", version, true)
