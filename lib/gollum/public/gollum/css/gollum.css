@@ -24,9 +24,9 @@ body, html {
   width: 100%;
 }
 
-@media all and (min-width: 940px) {
+@media all and (min-width: 1240px) {
   #wiki-wrapper {
-    max-width: 920px;
+    max-width: 1240px;
     padding-left:20px;
     padding-right:20px;
   }

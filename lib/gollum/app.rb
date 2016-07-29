@@ -49,7 +49,7 @@ module Precious
   class App < Sinatra::Base
     register Mustache::Sinatra
     include Precious::Helpers
-    
+
     dir     = File.dirname(File.expand_path(__FILE__))
 
     # Detect unsupported browsers.
@@ -353,7 +353,7 @@ module Precious
       wiki           = wiki_new
       @name          = params[:page] || "Preview"
       @page          = wiki.preview_page(@name, params[:content], params[:format])
-      @content       = @page.formatted_data
+      @content       = @page.text_data
       @toc_content   = wiki.universal_toc ? @page.toc_data : nil
       @mathjax       = wiki.mathjax
       @h1_title      = wiki.h1_title
@@ -428,7 +428,7 @@ module Precious
       if page = wikip.page
         @page    = page
         @name    = name
-        @content = page.formatted_data
+        @content = page.text_data
         @version = version
         mustache :page
       elsif file = wikip.wiki.file("#{file_path}", version, true)
